@@ -1,0 +1,17 @@
+pipeline {
+  agent any
+  stages {
+      
+    stage('Build image') {
+        steps {
+            sh "docker build -t nginx-server:${BUILD_NUMBER} ."
+        }
+    }
+    
+    stage('Run server') {
+        steps {
+            sh "docker run -d -p 80:80 nginx-server:${BUILD_NUMBER}"
+        }
+    }
+  }
+}
