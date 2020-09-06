@@ -4,7 +4,7 @@ pipeline {
       
     stage('Build image') {
         steps {
-            sh "docker build -t nginx-server:${BUILD_NUMBER} ."
+            sh "docker build -t nginx-server:${BUILD_NUMBER} 01_automation_test/"
         }
     }
     
